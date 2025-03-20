@@ -35,3 +35,7 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "tsx --no-warnings src/index.ts"
+
+[[ports]]
+localPort = 5500
+externalPort = 80
