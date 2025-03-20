@@ -1,11 +1,13 @@
+
 {
-	"compilerOptions": {
-		"strict": true,
-
-		"module": "NodeNext",
-
-		"noEmit": true,
-		"resolveJsonModule": true,
-		"allowImportingTsExtensions": true
-	}
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true
+  }
 }

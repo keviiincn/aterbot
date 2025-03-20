@@ -23,3 +23,15 @@ channel = "stable-24_05"
 [deployment]
 run = ["sh", "-c", "npm run dev"]
 build = ["sh", "-c", "clear"]
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 40637230
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "tsx --no-warnings src/index.ts"
