@@ -27,7 +27,7 @@ const createBot = (): void => {
 		port: +CONFIG.client.port,
 		username: CONFIG.client.username,
 		auth: 'offline',
-		version: '1.20.1'
+		version: '1.21.4'
 	} as const);
 
 
