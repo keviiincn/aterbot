@@ -32,13 +32,21 @@ const createBot = (): void => {
 	} as const);
 
 
-	bot.once('error', error => {
+	bot.on('error', error => {
 		console.error(`AFKBot got an error: ${error}`);
+		if (error.code === 'ECONNRESET') {
+			console.log('Connection reset - attempting to reconnect...');
+			reconnect();
+		}
 	});
-	bot.once('kicked', rawResponse => {
+	bot.on('kicked', rawResponse => {
 		console.error(`\n\nAFKbot is disconnected: ${rawResponse}`);
+		reconnect();
 	});
-	bot.once('end', () => void reconnect());
+	bot.on('end', () => {
+		console.log('Connection ended - attempting to reconnect...');
+		reconnect();
+	});
 
 	bot.once('spawn', () => {
 		const changePos = async (): Promise<void> => {
